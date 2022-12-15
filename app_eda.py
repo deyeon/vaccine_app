@@ -42,7 +42,7 @@ def run_eda_app():
 
     #plotly 라이브러리
     import plotly.express as px
-    fig=px.histogram(df, x=histogram_coulmn)
+    fig=px.histogram(df, x=histogram_coulmn ,color_discrete_sequence=['seagreen'])
     fig.update_layout(bargap=0.2)
     st.plotly_chart(fig)
 
