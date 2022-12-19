@@ -5,10 +5,12 @@ import joblib
 
 def run_ml_app():
 
-    man=st.number_input("남자 백신접종 수",1,78000000)
-    women=st.number_input("오늘 여자 백신접종 수",1,69000000)
-    covishield=st.number_input("백신1 아스트라 제네카 백신접종 수",1,168000000)
-    covaxin=st.number_input("백신2 covaxin 인도산 백신접종 수 ",1,20000000)
+    st.subheader('백신 접종자 수를 입력하면 백신 부작용자 수를 예측할수 있습니다.')
+
+    man=st.number_input("남자 백신접종자 수",1,78000000)
+    women=st.number_input("여자 백신접종자 수",1,69000000)
+    covishield=st.number_input("백신1 아스트라 제네카 백신접종자 수",1,168000000)
+    covaxin=st.number_input("백신2 covaxin 인도산 백신접종자 수 ",1,20000000)
 
 
     new_data=np.array([man,women,covishield,covaxin])
