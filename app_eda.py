@@ -13,10 +13,8 @@ def run_eda_app():
 
     df = df.loc[:,['Date','Vaccine_male','Vaccine_female','Vaccine_covishield','Vaccine_covaxin','Vaccine_aefi','aefiPercentage']]
 
-    st.subheader('통계 데이터 확인')
-    st.dataframe(df.head(3))
-    
-    st.subheader('기본 통계 데이터')
+ 
+    st.subheader('데이터 요약')
     st.dataframe(df.describe())
 
      # 컬럼을 선택할수 있게 한다. 하나의 컬럼을 선택하면,
@@ -24,19 +22,29 @@ def run_eda_app():
 
     st.subheader('최대/최소 데이터 확인하기')
 
-    column_list = df.columns[1:]
+    status =st.radio('설정을 선택하세요',['종합','부작용 비율'])
+    if status == '종합' :
+        df_max1=df.loc[df['Vaccine_male']==df['Vaccine_male'].max(),]
+        df_min1=df.loc[df['Vaccine_male']==df['Vaccine_male'].min(),]
 
-    selected_column=st.selectbox('컬럼을 선택하세요',column_list)
+        st.text('종합 최대')
+        st.dataframe(df_max1)
+        st.text('종합 최소')
+        st.dataframe(df_min1)
+    
+    elif status == '부작용 비율':
+        df_max2=df.loc[df['aefiPercentage']==df['aefiPercentage'].max(),]
+        df_min2=df.loc[df['aefiPercentage']==df['aefiPercentage'].min(),]
 
-    df_max=df.loc[df[selected_column]==df[selected_column].max(),]
-    df_min=df.loc[df[selected_column]==df[selected_column].min(),]
+        st.text('부작용 비율 최대')
+        st.dataframe(df_max2)
+        st.text('부작용 비율 최소')
+        st.dataframe(df_min2)
 
-    st.text('최대 데이터')
-    st.dataframe(df_max)
-    st.text('최소 데이터')
-    st.dataframe(df_min)
 
     st.subheader('컬럼 별 히스토그램')
+
+    column_list = df.columns[1:]
 
     histogram_coulmn=st.selectbox('히스토그램 확인 할 컬럼을 선택하세요',column_list)
 

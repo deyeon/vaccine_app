@@ -5,10 +5,10 @@ import joblib
 
 def run_ml_app():
 
-    man=st.number_input("남자",1,78000000)
-    women=st.number_input("여자",1,69000000)
-    covishield=st.number_input("백신1 아스트라 제네카",1,168000000)
-    covaxin=st.number_input("백신2 covaxin 인도산 백신 ",1,20000000)
+    man=st.number_input("남자 백신접종 수",1,78000000)
+    women=st.number_input("오늘 여자 백신접종 수",1,69000000)
+    covishield=st.number_input("백신1 아스트라 제네카 백신접종 수",1,168000000)
+    covaxin=st.number_input("백신2 covaxin 인도산 백신접종 수 ",1,20000000)
 
 
     new_data=np.array([man,women,covishield,covaxin])
@@ -25,4 +25,4 @@ def run_ml_app():
         st.info('예측한 부작용자 수는{}명 입니다.'.format(y_pred2))
 
     else:
-        st.info('입력한 데이터로는 예측하기 어렵습니다.')
+        st.warning('입력한 데이터로는 예측하기 어렵습니다.')
