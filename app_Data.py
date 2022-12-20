@@ -16,13 +16,17 @@ def run_Data_app():
  
     st.subheader('데이터 요약')
     st.text('백신 접종과 부작용에 대한 데이터 요약표입니다.')
-    st.text('각 컬럼은 Vaccine_male = 남자 백신 접종자수, Vaccine_female = 여자 백신 접종자수')
-    st.text('Vaccine_covishield = 아스트라제네카 접종자수, Vaccine_covaxin = 인도산 백신 접종자수')
-    st.text('Vaccine_aefi = 백신 부작용자수, aefiPercentage = 부작용 비율을 나타냅니다.')
-    st.text('                                  ')
-    st.text('각각 count = 총갯수,mean= 평균,std= 표준편차, min= 최소값, 25%= 4분위수의 25%값,')
-    st.text('50%= 4분위수의 50%값, 75% = 4분위수의 75%값, max= 최대값을 나타냅니다.')
     st.dataframe(df.describe())
+
+    if st.checkbox('컬럼정보 보기/숨기기'):
+        st.text('각 컬럼은 Vaccine_male = 남자 백신 접종자수, Vaccine_female = 여자 백신 접종자수')
+        st.text('Vaccine_covishield = 아스트라제네카 접종자수, Vaccine_covaxin = 인도산 백신 접종자수')
+        st.text('Vaccine_aefi = 백신 부작용자수, aefiPercentage = 부작용 비율을 나타냅니다.')
+        st.text('                                  ')
+        st.text('각각 count = 총갯수,mean= 평균,std= 표준편차, min= 최소값, 25%= 4분위수의 25%값,')
+        st.text('50%= 4분위수의 50%값, 75% = 4분위수의 75%값, max= 최대값을 나타냅니다.')
+    else :
+        st.write("")
 
      # 컬럼을 선택할수 있게 한다. 하나의 컬럼을 선택하면,
     # 해당 컬럼의 최대값 최소값 데이터를 화면에 보여준다.

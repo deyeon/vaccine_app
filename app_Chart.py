@@ -18,9 +18,12 @@ def run_chart_app():
 
     st.text('각 컬럼별 특정 수의 그룹의 분포를 히스토그램으로 나타내었습니다.')
     st.text('                                                       ')
-    st.text('각 컬럼은 Vaccine_male = 남자 백신 접종자수, Vaccine_female = 여자 백신 접종자수')
-    st.text('Vaccine_covishield = 아스트라제네카 접종자수, Vaccine_covaxin = 인도산 백신 접종자수')
-    st.text('Vaccine_aefi = 백신 부작용자수, aefiPercentage = 부작용 비율을 나타냅니다.')
+    if st.checkbox('컬럼 정보 보기/숨기기'):
+        st.text('각 컬럼은 Vaccine_male = 남자 백신 접종자수, Vaccine_female = 여자 백신 접종자수')
+        st.text('Vaccine_covishield = 아스트라제네카 접종자수, Vaccine_covaxin = 인도산 백신 접종자수')
+        st.text('Vaccine_aefi = 백신 부작용자수, aefiPercentage = 부작용 비율을 나타냅니다.')
+    else :
+        st.write("")
 
     column_list = df.columns[1:]
     st.text('                                                       ')
@@ -41,9 +44,16 @@ def run_chart_app():
 
 
     st.subheader('상관 관계 분석')
+   
+    if st.checkbox('컬럼별 정보 보기/숨기기'):
+        st.text('각 컬럼은 Vaccine_male = 남자 백신 접종자수, Vaccine_female = 여자 백신 접종자수')
+        st.text('Vaccine_covishield = 아스트라제네카 접종자수, Vaccine_covaxin = 인도산 백신 접종자수')
+        st.text('Vaccine_aefi = 백신 부작용자수, aefiPercentage = 부작용 비율을 나타냅니다.')
+    else :
+        st.write("")
 
     st.text('각 컬럼별간의 상관관계를 확인하고 싶은 컬럼을 선택하여 확인 할 수 있습니다.')
-    st.text('                                                       ')
+
     selected_list=st.multiselect('상관분석을 하고싶은 컬럼을 선택하세요', column_list)
     if len(selected_list) >= 2:
         fig2=px.scatter_matrix(df,dimensions=selected_list,color='Date')
