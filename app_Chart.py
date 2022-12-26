@@ -91,7 +91,7 @@ def run_chart_app():
 
     st.text('각 컬럼별간의 상관관계를 확인하고 싶은 컬럼을 선택하여 확인 할 수 있습니다.')
 
-    column_list = df.columns[1:3+1]
+    column_list = df.columns[1:5+1]
     selected_list=st.multiselect('상관분석을 하고싶은 컬럼을 선택하세요', column_list)
     if len(selected_list) >= 2:
         fig7=px.scatter_matrix(df,dimensions=selected_list,color='Date')
