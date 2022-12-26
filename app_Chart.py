@@ -16,7 +16,6 @@ def run_chart_app():
     df = df.loc[:,['Date','Vaccine_male','Vaccine_female','Vaccine_covishield','Vaccine_covaxin','Vaccine_aefi','aefiPercentage']]
 
     st.subheader('컬럼 별 히스토그램')
-    st.text('테스트')
 
     st.text('각 컬럼별 특정 수의 그룹의 분포를 히스토그램으로 나타내었습니다.')
     st.text('                                                       ')
