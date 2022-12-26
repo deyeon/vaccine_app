@@ -27,42 +27,42 @@ def run_chart_app():
     if histogram_coulmn == '남자 백신 접종자수':
         #plotly 라이브러리
         
-        fig=px.histogram(df, x=df['Vaccine_male'],title=show_list[0]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig=px.histogram(df, x=df['Vaccine_male'],title=show_list[0]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig)
     
     elif histogram_coulmn == '여자 백신 접종자수':
         #plotly 라이브러리
         
-        fig1=px.histogram(df, x=df['Vaccine_female'],title=show_list[1]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig1=px.histogram(df, x=df['Vaccine_female'],title=show_list[1]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig1.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig1)
 
     elif histogram_coulmn == '아스트라제네카 접종자수':
         #plotly 라이브러리
         
-        fig2=px.histogram(df, x=df['Vaccine_covishield'],title=show_list[2]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig2=px.histogram(df, x=df['Vaccine_covishield'],title=show_list[2]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig2.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig2)
 
     elif histogram_coulmn == '인도산 백신 접종자수':
         #plotly 라이브러리
         
-        fig3=px.histogram(df, x=df['Vaccine_covaxin'],title=show_list[3]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig3=px.histogram(df, x=df['Vaccine_covaxin'],title=show_list[3]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig3.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig3)
 
     elif histogram_coulmn == '백신 부작용자수':
         #plotly 라이브러리
         
-        fig4=px.histogram(df, x=df['Vaccine_aefi'],title=show_list[4]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig4=px.histogram(df, x=df['Vaccine_aefi'],title=show_list[4]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig4.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig4)
 
     elif histogram_coulmn == '부작용 비율':
         #plotly 라이브러리
         
-        fig5=px.histogram(df, x=df['aefiPercentage'],title=show_list[5]+"컬럼 히스토그램",color_discrete_sequence=['seagreen'])
+        fig5=px.histogram(df, x=df['aefiPercentage'],title=show_list[5]+" 히스토그램",color_discrete_sequence=['seagreen'])
         fig5.update_layout(bargap=0.2,plot_bgcolor='#ffffff')
         st.plotly_chart(fig5)
 
